@@ -11,6 +11,7 @@ import { ProductService } from './product.service';
 export class ProductComponent implements OnInit {
 
   products: Product[];
+  addedProduct : string;
   constructor(private productService: ProductService) { }
 
   ngOnInit() {
@@ -21,6 +22,11 @@ export class ProductComponent implements OnInit {
     this.productService.getProducts().subscribe(p => {
       this.products = p;
     });
+  }
+
+  addToCart(product:Product){
+    console.log(product);
+    this.addedProduct = product.productName;
   }
 
 }

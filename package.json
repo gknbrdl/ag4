@@ -27,9 +27,11 @@
         "bootstrap": "4.0.0-beta",
         "jquery": "3.2.1",
         "tether": "1.4.0",
-        "popper.js": "*"
+        "popper.js": "*",
+        "angular2-notifications": "*"
     },
     "devDependencies": {
+        "@angular/animations": "^4.2.4",
         "@angular/cli": "1.4.4",
         "@angular/compiler-cli": "^4.2.4",
         "@angular/language-service": "^4.2.4",
@@ -52,6 +54,7 @@
         "bootstrap": "4.0.0-beta",
         "jquery": "3.2.1",
         "tether": "1.4.0",
-        "popper.js": "*"
+        "popper.js": "*",
+        "angular2-notifications": "*"
     }
 }

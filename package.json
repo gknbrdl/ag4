@@ -28,7 +28,8 @@
         "jquery": "3.2.1",
         "tether": "1.4.0",
         "popper.js": "*",
-        "angular2-notifications": "*"
+        "angular2-notifications": "*",
+        "font-awesome": "*"
     },
     "devDependencies": {
         "@angular/animations": "^4.2.4",
@@ -55,6 +56,7 @@
         "jquery": "3.2.1",
         "tether": "1.4.0",
         "popper.js": "*",
-        "angular2-notifications": "*"
+        "angular2-notifications": "*",
+        "font-awesome": "*"
     }
 }

@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 
@@ -13,6 +14,7 @@ import { ShippingDetailComponent } from './shipping-detail/shipping-detail.compo
 import { CartSummaryComponent } from './cart/cart-summary/cart-summary.component';
 import { LoggedComponent } from './account/logged/logged.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import {CartService} from './cart/cart.service';
 
 @NgModule({
   declarations: [
@@ -28,12 +30,14 @@ import { NotFoundComponent } from './not-found/not-found.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpModule,
     SimpleNotificationsModule.forRoot()
   ],
   providers: [
     {provide:'apiUrl',useValue:'http://northwindapi.azurewebsites.net/api/'},
-    NotificationsService
+    NotificationsService,
+    CartService
   ],
   bootstrap: [AppComponent]
 })

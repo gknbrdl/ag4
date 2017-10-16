@@ -6,13 +6,13 @@
     <ul class="list-group">
         <li *ngFor="let product of products" class="list-group-item">
             <button class="btn btn-sm btn-primary float-right" (click)="addToCart(product)">
-                <i class="glyphicon glyphicon-plus"></i>
+                <i class="fa fa-plus"></i>
                 Add
             </button>
             <div class="clearfix"></div>
             <h5>{{product.productName}}</h5>
             <p>{{product.quantityPerUnit}}</p>
-            <h6>{{product.unitPrice}}</h6>
+            <h6>{{product.unitPrice | currency : 'USD' : true}}</h6>
         </li>
     </ul>
 </div>

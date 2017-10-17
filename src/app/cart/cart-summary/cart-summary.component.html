@@ -4,7 +4,14 @@
             <i class="fa fa-shopping-basket"></i> Cart:{{totalCartItemPrice | currency : 'USD' : true}}({{totalCartItem}})
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" *ngFor="let item of cartItems">{{item.product.productName}} ({{item.product.quantity}})</a>
+            <a class="dropdown-item" *ngFor="let item of cartItems">
+            	<a href="" class="btn btn-sm btn-danger">
+            		<i class="fa fa-remove"></i>
+            	</a>
+            	{{item.product.productName}} ({{item.product.quantity}})
+            </a>
+            <hr>
+            <a href="" class="d-block text-center btn-sm btn btn-success m-0">Go To Cart</a>
         </div>
     </li>
 </ul>

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from './product';
 import { ProductService } from './product.service';
-import {NotificationsService} from 'angular2-notifications';
-import {CartService} from '../cart/cart.service';
+import { NotificationsService } from 'angular2-notifications';
+import { CartService } from '../cart/cart.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -13,24 +14,28 @@ import {CartService} from '../cart/cart.service';
 export class ProductComponent implements OnInit {
 
   products: Product[];
-  addedProduct : string;
-  constructor(private productService: ProductService, 
-              private notificationsService: NotificationsService,
-              private cartService:CartService) { }
+  addedProduct: string;
+  constructor(private activatedRoute: ActivatedRoute,
+    private productService: ProductService,
+    private notificationsService: NotificationsService,
+    private cartService: CartService) { }
 
   ngOnInit() {
-    this.getProducts();
+    this.activatedRoute.params.subscribe(params => {
+      this.getProducts(params['seoUrl']);
+    })
+
   }
 
-  getProducts() {
-    this.productService.getProducts().subscribe(p => {
+  getProducts(seoUrl: string) {
+    this.productService.getProducts(seoUrl).subscribe(p => {
       this.products = p;
     });
   }
 
-  addToCart(product:Product){
+  addToCart(product: Product) {
     this.cartService.addToCart(product);
-    this.notificationsService.success('Successfull',product.productName+" added to cart");
+    this.notificationsService.success('Successfull', product.productName + " added to cart");
   }
 
 }

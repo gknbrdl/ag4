@@ -1,4 +1,4 @@
-import { Injectable, Inject} from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { Product } from './product';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
@@ -10,11 +10,17 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class ProductService {
 
-  constructor(private http: Http, @Inject('apiUrl') private apiUrl) { }
+	constructor(private http: Http, @Inject('apiUrl') private apiUrl) { }
 
-  getProducts(): Observable<Product[]> {
-    return this.http.get(this.apiUrl + "products")
-      .map(response => response.json());
-  }
+	getProducts(seoUrl): Observable<Product[]> {
+		if (seoUrl) {
+			return this.http.get(this.apiUrl + "products/" + seoUrl)
+				.map(response => response.json());
+		} else {
+			return this.http.get(this.apiUrl + "products")
+				.map(response => response.json());
+		}
+
+	}
 
 }

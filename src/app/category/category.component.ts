@@ -13,6 +13,7 @@ export class CategoryComponent implements OnInit {
 	constructor(private categoryService: CategoryService) { }
 
 	categories: Category[];
+	selectedCategory: Category;
 
 	ngOnInit() {
 		this.getCategories();
@@ -20,6 +21,14 @@ export class CategoryComponent implements OnInit {
 
 	getCategories() {
 		this.categoryService.getCategories().subscribe(c => this.categories = c);
+	}
+
+	onSelect(category?: Category) {
+		if (category) {
+			this.selectedCategory = category;
+		} else {
+			this.selectedCategory = null;
+		}
 	}
 
 }

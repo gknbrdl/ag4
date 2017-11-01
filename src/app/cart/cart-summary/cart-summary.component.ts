@@ -1,6 +1,7 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
 import { CartService } from '../../cart/cart.service';
 import { CartItem } from '../../cart/cart-item';
+import { Product } from '../../product/product';
 
 @Component({
   selector: 'app-cart-summary',
@@ -19,9 +20,14 @@ export class CartSummaryComponent implements OnInit, DoCheck {
     this.cartItems = this.cartService.list();
   }
 
-  ngDoCheck() { 
+  ngDoCheck() {
     this.totalCartItem = this.cartService.list().reduce((a, b) => a + b.quantity, 0);
     this.totalCartItemPrice = this.cartService.list().reduce((a, b) => a + b.quantity * b.product.unitPrice, 0);
+  }
+
+
+  removeFromCart(product: Product) {
+    this.cartService.removeFromCart(product);
   }
 
 }

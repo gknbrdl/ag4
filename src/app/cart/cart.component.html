@@ -1,4 +1,8 @@
-<h4 class="page-header">Your Cart</h4>
+<h4 class="page-header">Your Cart
+  <a *ngIf="cartItems.length > 0" routerLink="/shipping-detail" class="btn btn-sm btn-primary float-right">
+    Complete Shopping <i class="fa fa-cart"></i>
+  </a>
+</h4>
 <table class="table table-responsive" *ngIf="cartItems.length > 0; else cartEmptyContent">
   <thead>
     <tr>

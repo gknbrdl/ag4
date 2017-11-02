@@ -41,6 +41,10 @@ const appRoutes: Routes = [
   {
     path: "shipping-detail",
     component: ShippingDetailComponent
+  },
+  {
+    path: "account",
+    component: AccountComponent
   }
 ]
 

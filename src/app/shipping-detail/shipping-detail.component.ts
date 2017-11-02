@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ShippingDetail } from './shipping-detail';
+import { NotificationsService } from 'angular2-notifications';
+import { CartService } from '../cart/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-shipping-detail',
@@ -9,7 +12,9 @@ import { ShippingDetail } from './shipping-detail';
 })
 export class ShippingDetailComponent implements OnInit {
 
-	constructor() { }
+	constructor(private cartService: CartService,
+		private notification: NotificationsService,
+		private router: Router) { }
 	cities = [];
 	model: ShippingDetail = new ShippingDetail('', '', true, -1);
 	ngOnInit() {
@@ -21,7 +26,11 @@ export class ShippingDetailComponent implements OnInit {
 	}
 
 	checkout(form: NgForm) {
+		if (form.invalid) return;
 
+		this.cartService.clear();
+		this.notification.info('Successfull', 'Shopping completed');
+		this.router.navigate(["products"]);
 	}
 
 }

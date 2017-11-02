@@ -1,3 +1,32 @@
-<p>
-  account works!
-</p>
+<div class="container">
+	<div id="login-box" class="col-md-7">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<div class="panel-title text-center">Login</div>
+			</div>
+			<div class="panel-body">
+				<form #loginForm="ngForm" (ngSubmit)="loginUser(loginForm)" id="form" class="form-horizantal">
+					<div class="input-group">
+						<span class="input-group-addon">
+							<i class="fa fa-user"></i>
+						</span>
+						<input type="text" class="form-control" name="user" ngModel placeholder="user name">
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon">
+							<i class="fa fa-key"></i>
+						</span>
+						<input type="password" class="form-control" name="password" ngModel placeholder="password">
+					</div>
+					<div class="form-control">
+						<div class="controls">
+							<button type="submit" class="btn btn-primary float-right">
+								<i class="fa fa-log-in"></i> Login
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
